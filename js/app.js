@@ -53,7 +53,6 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  console.log(post)
   const text = post.comments[0].text;
   const user = post.comments[0].user;
   const image = post.image;
@@ -124,9 +123,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="https://github.com/ProgrammingHero1">
-                          ${text}
+                          ${user}
                       </a>
-                      ${user}
+                      ${text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
@@ -170,7 +169,6 @@ const loadPosts = async () => {
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
-  // console.log(posts);
 }
 
 loadPosts();
